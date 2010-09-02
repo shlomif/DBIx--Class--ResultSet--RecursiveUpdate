@@ -337,7 +337,7 @@ As ResultSet subclass:
 
     __PACKAGE__->load_namespaces( default_resultset_class => '+DBIx::Class::ResultSet::RecursiveUpdate' );
 
-in the Schema file (see t/lib/DBSchema.pm).  Or appriopriate 'use base' in the ResultSet classes. 
+in the Schema file (see t/lib/DBSchema.pm).  Or appropriate 'use base' in the ResultSet classes. 
 
 Then:
 
@@ -353,10 +353,11 @@ Then:
 
   
 =head1 DESCRIPTION
+
 This is still experimental. I've added a functional interface so that it can be used 
 in Form Processors and not require modification of the model.
 
-You can feed the ->create method with a recursive datastructure and have the related records
+You can feed the ->create method with a recursive data structure and have the related records
 created.  Unfortunately you cannot do a similar thing with update_or_create - this module
 tries to fill that void. 
 
@@ -365,12 +366,12 @@ which works just like update_or_create but can recursively update or create
 data objects composed of multiple rows. All rows need to be identified by primary keys
 - so you need to provide them in the update structure (unless they can be deduced from 
 the parent row - for example when you have a belongs_to relationship).  
-If not all colums comprising the primary key are specified - then a new row will be created,
+If not all columns comprising the primary key are specified - then a new row will be created,
 with the expectation that the missing columns will be filled by it (as in the case of auto_increment 
 primary keys).  
 
 
-If the resultset itself stores an assignement for the primary key, 
+If the result-set itself stores an assignment for the primary key, 
 like in the case of:
     
     my $restricted_rs = $user_rs->search( { id => 1 } );
